@@ -3,8 +3,9 @@ import AppleIcon from '../assets/images/apple-icon.svg';
 import Button from '../components/Button';
 import InputField from '../components/InputField';
 import { TEXTS } from '../constants';
+import { useGoogleLogin } from '@react-oauth/google';
 
-const Login = () => {
+const Login = ({onGoogleClick}) => {
     return (
         <div className="flex h-screen bg-gray-100 font-lato flex-col sm:flex-row">
             <div className="flex w-full sm:w-42 bg-black text-white justify-center items-center text-2xl p-4 sm:p-0">
@@ -16,7 +17,7 @@ const Login = () => {
                     <div className="text-sm sm:text-base text-gray-900">{TEXTS.SIGN_IN_TO_ACCOUNT}</div>
                 </div>
                 <div className="flex my-6 w-full sm:w-96 justify-between flex-wrap">
-                    <Button icon={GoogleIcon} alt="Google Icon" text={TEXTS.SIGN_IN_WITH_GOOGLE} />
+                  <div onClick={()=>{onGoogleClick()}}><Button icon={GoogleIcon} alt="Google Icon" text={TEXTS.SIGN_IN_WITH_GOOGLE}/></div>
                     <Button icon={AppleIcon} alt="Apple Icon" text={TEXTS.SIGN_IN_WITH_APPLE} />
                 </div>
                 <div className="bg-white rounded-3xl w-full sm:w-96 h-auto sm:h-80 p-4 sm:p-8 space-y-4">
